@@ -1,0 +1,48 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/gs-producing-web-service"
+           targetNamespace="http://spring.io/guides/gs-producing-web-service" elementFormDefault="qualified">
+
+    <xs:element name="getPersonRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="tinnumberdata" type="xs:string" minOccurs="0"/>
+                <xs:element name="namedata" type="xs:string" minOccurs="0" />
+                <xs:element name="countrydata" type="xs:string" minOccurs="0"/>
+                <xs:element name="birthdate" type="xs:date" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+
+    <xs:element name="getPersonResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="person" type="tns:WLmwldataMatchResultXML" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:complexType name="WlmwldataFindXML">
+        <xs:sequence>
+            <xs:element name="namedata" type="xs:string" minOccurs="0"/>
+            <xs:element name="countrydata" type="xs:string" minOccurs="0"/>
+            <xs:element name="tinnumberdata" type="xs:string" minOccurs="0"/>
+            <xs:element name="birthdate" type="xs:date" minOccurs="0"/>
+            <xs:element name="blcode" type="xs:string" minOccurs="0"/>
+            <xs:element name="bltype" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="WLmwldataMatchResultXML">
+        <xs:sequence>
+            <xs:element name="matchScore" type="xs:int" minOccurs="0"/>
+            <xs:element name="matchStatus" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="matchMessage" type="xs:string" minOccurs="0"/>
+            <xs:element name="matchResult" type="tns:WlmwldataFindXML" maxOccurs='unbounded' minOccurs="0"/>
+
+        </xs:sequence>
+    </xs:complexType>
+
+
+</xs:schema>
