@@ -46,8 +46,6 @@ public class PersonEndpoint {
 
 		List<Wlmwldata> result = null;
 
-
-
 		if (wlmwldatafind.getNamedata() != null && wlmwldatafind.getTinnumberdata() != null
 				&& wlmwldatafind.getCountrydata() != null && wlmwldatafind.getBirthdate() !=null)
 			result = wlmwldataRepository.findOneByNamedataAndTinnumberdataAndCountrydataAndBirthdatedata(wlmwldatafind.getNamedata(),
