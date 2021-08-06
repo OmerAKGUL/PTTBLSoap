@@ -35,5 +35,6 @@ public interface WlmwldataRepository extends CrudRepository<Wlmwldata, Long> {
         List<Wlmwldata> findOneByTinnumberdataAndCountrydata(String tinnumberdata, String countrydata);
 
         List<Wlmwldata> findOneByNamedataAndTinnumberdataAndCountrydataAndBirthdatedata(String namedata, String tinnumberdata, String countrydata, LocalDate birthdate);
+        List<Wlmwldata> findOneByNamedataAndCountrydataAndBirthdatedata(String namedata, String countrydata, LocalDate birthdate);
 
 }

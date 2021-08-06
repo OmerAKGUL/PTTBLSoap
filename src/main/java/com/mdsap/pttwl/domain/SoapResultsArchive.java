@@ -10,31 +10,29 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * A Wlmwldata.
  */
 @Entity
 @Table(schema = "WLF", name = "soapresultsarchive")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class SoapResultsArchive implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "archivedate")
     private Timestamp archivedate;
 
-    @Column(name="matchtxnid")
+    @Column(name="matchctxnid")
     private Integer matchtxnid;
 
     @Column(name="matchscore")
-    private BigDecimal matchScore;
-
+    private int matchScore;
 
 
     @Column(name = "Searchusr")
@@ -59,19 +57,18 @@ public class SoapResultsArchive implements Serializable {
     private String SearchCountrydata;
 
     @Column(name = "searchbirthdate")
-    private String SearchBirthdate;
+    private LocalDate SearchBirthdate;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    public SoapResultsArchive() {
+        archivedate  = Timestamp.valueOf(LocalDateTime.now());
     }
 
-    public Long getId() {
+
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Timestamp getArchivedate() {
         return archivedate;
@@ -89,11 +86,11 @@ public class SoapResultsArchive implements Serializable {
         this.matchtxnid = matchtxnid;
     }
 
-    public BigDecimal getMatchScore() {
+    public int getMatchScore() {
         return matchScore;
     }
 
-    public void setMatchScore(BigDecimal matchScore) {
+    public void setMatchScore(int matchScore) {
         this.matchScore = matchScore;
     }
 
@@ -153,11 +150,11 @@ public class SoapResultsArchive implements Serializable {
         SearchCountrydata = searchCountrydata;
     }
 
-    public String getSearchBirthdate() {
+    public LocalDate getSearchBirthdate() {
         return SearchBirthdate;
     }
 
-    public void setSearchBirthdate(String searchBirthdate) {
+    public void setSearchBirthdate(LocalDate searchBirthdate) {
         SearchBirthdate = searchBirthdate;
     }
 }

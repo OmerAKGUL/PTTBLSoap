@@ -14,6 +14,6 @@ import java.util.List;
  */
 
 @Repository
-public interface SoapResultArchiveRepository extends CrudRepository<SoapResultsArchive, Long> {
+public interface SoapResultArchiveRepository extends CrudRepository<SoapResultsArchive, Integer> {
 
 }

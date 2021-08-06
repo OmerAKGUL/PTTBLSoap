@@ -4,6 +4,11 @@
     <xs:element name="getPersonRequest">
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="searchuser" type="xs:string" />
+                <xs:element name="searchdepartment" type="xs:string" />
+                <xs:element name="searchlocation" type="xs:string"/>
+                <xs:element name="searchapplication" type="xs:string" />
+
                 <xs:element name="tinnumberdata" type="xs:string" minOccurs="0"/>
                 <xs:element name="namedata" type="xs:string" minOccurs="0" />
                 <xs:element name="countrydata" type="xs:string" minOccurs="0"/>

@@ -10,6 +10,7 @@ public class WlmwldataService {
     private String tinnumberdata;
     private LocalDate birthdate;
 
+
     public WlmwldataService() {
         namedata = null;
         countrydata = null;
@@ -17,18 +18,17 @@ public class WlmwldataService {
         birthdate = null;
 
     }
-    public WlmwldataService(String namedata,String countrydata,String tinnumberdata,LocalDate birthdate) {
+    public WlmwldataService(String namedata,String countrydata,String tinnumberdata) {
         this.namedata = namedata;
         this.countrydata = countrydata;
         this.tinnumberdata = tinnumberdata;
-        this.birthdate=birthdate;
+        this.birthdate=null;
 
     }
 
     public String getNamedata() {
         return namedata;
     }
-
 
     public String getCountrydata() {
         return countrydata;

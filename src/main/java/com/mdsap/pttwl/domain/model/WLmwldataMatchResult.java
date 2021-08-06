@@ -1,13 +1,14 @@
 package com.mdsap.pttwl.domain.model;
 
 
+import com.mdsap.pttwl.domain.SoapResultsArchive;
 import com.mdsap.pttwl.domain.Wlmwldata;
+import io.spring.guides.gs_producing_web_service.GetPersonRequest;
 import io.spring.guides.gs_producing_web_service.WLmwldataMatchResultXML;
 import io.spring.guides.gs_producing_web_service.WlmwldataFindXML;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,16 @@ public class WLmwldataMatchResult {
     private boolean matchStatus;
     private String matchMessage;
     private List<WlmwldataFind> matchResult;
+
+    private  List<SoapResultsArchive> soapResultsArchive;
+
+    public List<SoapResultsArchive> getSoapResultsArchive() {
+        return soapResultsArchive;
+    }
+
+    public void setSoapResultsArchive(List<SoapResultsArchive> soapResultsArchive) {
+        this.soapResultsArchive = soapResultsArchive;
+    }
 
     public WLmwldataMatchResult() {
 
@@ -60,15 +71,40 @@ public class WLmwldataMatchResult {
         this.matchResult = matchResult;
     }
 
-    public void addMatchData(List<Wlmwldata> wlmwldataList ) {
+    public void addMatchData(List<Wlmwldata> wlmwldataList, GetPersonRequest request) {
 
         if (wlmwldataList == null || wlmwldataList.size() <= 0)
             return;
 
+        this.setMatchScore(100);
+        this.setMatchStatus(true);
+        this.setMatchMessage("Number of match result is : " + wlmwldataList.size());
+
+        soapResultsArchive = new ArrayList<SoapResultsArchive>();
         matchResult = new ArrayList<WlmwldataFind>();
         for (Wlmwldata data : wlmwldataList) {
 
             WlmwldataFind val = new WlmwldataFind();
+            SoapResultsArchive soapVal = new SoapResultsArchive();
+
+            soapVal.setMatchtxnid(data.getWfprocid());
+            soapVal.setMatchScore(this.getMatchScore());
+            soapVal.setSearchTinnumberdata(request.getTinnumberdata());
+            soapVal.setSearchNamedata(request.getNamedata());
+            soapVal.setSearchCountrydata(request.getCountrydata());
+
+            try {
+                LocalDate localDate = LocalDate.of(request.getBirthdate().getYear(), request.getBirthdate().getMonth(), request.getBirthdate().getDay());
+                soapVal.setSearchBirthdate(localDate);
+            } catch (Exception e)
+            {
+                soapVal.setSearchBirthdate(null);
+            }
+            soapVal.setSearchApp(request.getSearchapplication());
+            soapVal.setSearchDept(request.getSearchdepartment());
+            soapVal.setSearchUsr(request.getSearchuser());
+            soapVal.setSearchLoc(request.getSearchlocation());
+            soapResultsArchive.add(soapVal);
 
             val.setNamedata(data.getNamedata());
             val.setTinnumberdata(data.getTinnumberdata());
@@ -78,11 +114,10 @@ public class WLmwldataMatchResult {
             val.setBirthdate(data.getBirthdatedata());
             matchResult.add(val);
 
+
         }
 
-        this.setMatchScore(100);
-        this.setMatchStatus(true);
-        this.setMatchMessage("Number of match result is : " + wlmwldataList.size());
+
 
     }
 
