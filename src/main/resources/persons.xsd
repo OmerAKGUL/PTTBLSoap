@@ -4,10 +4,15 @@
     <xs:element name="getPersonRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="searchuser" type="xs:string" />
-                <xs:element name="searchdepartment" type="xs:string" />
-                <xs:element name="searchlocation" type="xs:string"/>
-                <xs:element name="searchapplication" type="xs:string" />
+                <xs:element name="sorgu_id" type="xs:int" />
+                <xs:element name="merkez_no" type="xs:int" />
+                <xs:element name="sube_no" type="xs:int"/>
+                <xs:element name="gise_no" type="xs:int" />
+                <xs:element name="sicil_no" type="xs:int" />
+                <xs:element name="islem_kanali" type="xs:string" />
+                <xs:element name="islem_tipi" type="xs:string" />
+                <xs:element name="islem_adi" type="xs:string" />
+
 
                 <xs:element name="tinnumberdata" type="xs:string" minOccurs="0"/>
                 <xs:element name="namedata" type="xs:string" minOccurs="0" />

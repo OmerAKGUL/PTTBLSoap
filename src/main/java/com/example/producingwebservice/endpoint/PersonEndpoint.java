@@ -33,6 +33,7 @@ public class PersonEndpoint {
 	@ResponsePayload
 	public GetPersonResponse getPerson(@RequestPayload GetPersonRequest request) throws DatatypeConfigurationException {
 
+
 		WlmwldataService wlmwldatafind = new WlmwldataService(request.getNamedata(),request.getCountrydata(), request.getTinnumberdata());
 
 		wlmwldatafind.update();

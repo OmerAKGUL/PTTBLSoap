@@ -100,10 +100,13 @@ public class WLmwldataMatchResult {
             {
                 soapVal.setSearchBirthdate(null);
             }
-            soapVal.setSearchApp(request.getSearchapplication());
-            soapVal.setSearchDept(request.getSearchdepartment());
-            soapVal.setSearchUsr(request.getSearchuser());
-            soapVal.setSearchLoc(request.getSearchlocation());
+            soapVal.setSorguId(request.getSorguId());
+            soapVal.setMerkezNo(request.getMerkezNo());
+            soapVal.setSubeNo(request.getSubeNo());
+            soapVal.setGiseNo(request.getGiseNo());
+            soapVal.setSicilNo(request.getSicilNo());
+            soapVal.setIslemKanali(request.getIslemKanali());
+            soapVal.setIslemAdi(request.getIslemAdi());
             soapResultsArchive.add(soapVal);
 
             val.setNamedata(data.getNamedata());
