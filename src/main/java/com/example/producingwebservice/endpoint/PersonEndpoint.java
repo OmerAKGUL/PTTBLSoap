@@ -44,7 +44,7 @@ public class PersonEndpoint {
 			result = wlmwldataRepository.findOneByTinnumberdata(wlmwldatafind.getTinnumberdata());
 
 
-		 else if (wlmwldatafind.getNamedata() != null && wlmwldatafind.getCountrydata() != null && wlmwldatafind.getBirthdate() !=null) {
+		 else if (wlmwldatafind.getNamedata() != null && wlmwldatafind.getCountrydata() != null && request.getBirthdate() !=null) {
 
 			 LocalDate localDate = null;
 			 try {
@@ -70,6 +70,7 @@ public class PersonEndpoint {
 	    res.setPerson(matchResult.getResponse());
 
 	    try {
+	    	if(matchResult.isMatchStatus())
 			soapRepository.saveAll(matchResult.getSoapResultsArchive());
 		} catch (Exception e)
 		{
