@@ -40,10 +40,24 @@ public class PersonEndpoint {
 
 		List<Wlmwldata> result = null;
 
-		 if (wlmwldatafind.getTinnumberdata() != null)
+		 if (request.getTinnumberdatatype().equals("TC") && wlmwldatafind.getTinnumberdata() != null)
 			result = wlmwldataRepository.findOneByTinnumberdata(wlmwldatafind.getTinnumberdata());
 
+		 else if (wlmwldatafind.getNamedata() != null && wlmwldatafind.getCountrydata() != null && request.getBirthdate() !=null && request.getTinnumberdata() != null )   {
 
+			 LocalDate localDate = null;
+			 try {
+				 localDate = LocalDate.of(request.getBirthdate().getYear(), request.getBirthdate().getMonth(), request.getBirthdate().getDay());
+				 result = wlmwldataRepository.findOneByNamedataAndTinnumberdataAndCountrydataAndBirthdatedata(wlmwldatafind.getNamedata(),wlmwldatafind.getTinnumberdata(),
+						 wlmwldatafind.getCountrydata(), localDate);
+			 } catch (Exception e)
+			 {
+
+				 log.error("Error "+"\n"+e.toString());
+			 }
+
+		 }
+/*
 		 else if (wlmwldatafind.getNamedata() != null && wlmwldatafind.getCountrydata() != null && request.getBirthdate() !=null) {
 
 			 LocalDate localDate = null;
@@ -61,7 +75,7 @@ public class PersonEndpoint {
 
 		else if (wlmwldatafind.getNamedata() != null && wlmwldatafind.getCountrydata() != null)
 			result = wlmwldataRepository.findOneByNamedataAndCountrydata(wlmwldatafind.getNamedata(),wlmwldatafind.getCountrydata());
-
+*/
 
 		WLmwldataMatchResult matchResult = new WLmwldataMatchResult();
 		matchResult.addMatchData(result, request);

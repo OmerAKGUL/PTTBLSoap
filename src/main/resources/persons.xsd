@@ -13,7 +13,7 @@
                 <xs:element name="islem_tipi" type="xs:string" />
                 <xs:element name="islem_adi" type="xs:string" />
 
-
+                <xs:element name="tinnumberdatatype" type="xs:string" default="TC" minOccurs="0" />
                 <xs:element name="tinnumberdata" type="xs:string" minOccurs="0"/>
                 <xs:element name="namedata" type="xs:string" minOccurs="0" />
                 <xs:element name="countrydata" type="xs:string" minOccurs="0"/>
