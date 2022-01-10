@@ -107,6 +107,7 @@ public class WLmwldataMatchResult {
             soapVal.setSicilNo(request.getSicilNo());
             soapVal.setIslemKanali(request.getIslemKanali());
             soapVal.setIslemAdi(request.getIslemAdi());
+            soapVal.setIslemTipi(request.getIslemTipi());
             soapResultsArchive.add(soapVal);
 
             val.setNamedata(data.getNamedata());
