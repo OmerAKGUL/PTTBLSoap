@@ -44,18 +44,18 @@ public class PersonEndpoint {
 			result = wlmwldataRepository.findOneByTinnumberdata(wlmwldatafind.getTinnumberdata());
 
 		 else if (wlmwldatafind.getNamedata() != null && wlmwldatafind.getCountrydata() != null && request.getBirthdate() !=null && request.getTinnumberdata() != null )   {
+			 if (!(wlmwldatafind.getNamedata().equals("")  || wlmwldatafind.getCountrydata().equals("") ||  request.getBirthdate().equals("") ||  request.getTinnumberdata().equals("") ) )
+				 {
+					 LocalDate localDate = null;
+					 try {
+						 localDate = LocalDate.of(request.getBirthdate().getYear(), request.getBirthdate().getMonth(), request.getBirthdate().getDay());
+						 result = wlmwldataRepository.findOneByNamedataAndTinnumberdataAndCountrydataAndBirthdatedata(wlmwldatafind.getNamedata(), wlmwldatafind.getTinnumberdata(),
+								 wlmwldatafind.getCountrydata(), localDate);
+					 } catch (Exception e) {
 
-			 LocalDate localDate = null;
-			 try {
-				 localDate = LocalDate.of(request.getBirthdate().getYear(), request.getBirthdate().getMonth(), request.getBirthdate().getDay());
-				 result = wlmwldataRepository.findOneByNamedataAndTinnumberdataAndCountrydataAndBirthdatedata(wlmwldatafind.getNamedata(),wlmwldatafind.getTinnumberdata(),
-						 wlmwldatafind.getCountrydata(), localDate);
-			 } catch (Exception e)
-			 {
-
-				 log.error("Error "+"\n"+e.toString());
-			 }
-
+						 log.error("Error " + "\n" + e.toString());
+					 }
+				 }
 		 }
 /*
 		 else if (wlmwldatafind.getNamedata() != null && wlmwldatafind.getCountrydata() != null && request.getBirthdate() !=null) {
