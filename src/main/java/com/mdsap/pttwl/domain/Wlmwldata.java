@@ -14,7 +14,7 @@ import java.time.LocalDate;
  * A Wlmwldata.
  */
 @Entity
-@Table(schema = "WLF", name = "wlmwldata")
+@Table(schema = "WLF", name = "WLMWLData")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Wlmwldata implements Serializable {
 
@@ -27,45 +27,45 @@ public class Wlmwldata implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "createdt")
+    @Column(name = "CreateDT")
     private Instant createdt;
 
-    @Column(name = "updatedt")
+    @Column(name = "UpdateDT")
     private Instant updatedt;
 
-    @Column(name = "createusr")
+    @Column(name = "CreateUsr")
     private Integer createusr;
 
-    @Column(name = "updateusr")
+    @Column(name = "UpdateUsr")
     private Integer updateusr;
 
-    @Column(name = "wfstate")
+    @Column(name = "WFState")
     private String wfstate;
 
-    @Column(name = "wfprocid")
+    @Column(name = "WFProcID")
     private Integer wfprocid;
 
-    @Column(name = "namedata")
+    @Column(name = "NameData")
     private String namedata;
 
-    @Column(name = "addressdata")
+    @Column(name = "AddressData")
     private String addressdata;
 
-    @Column(name = "citydata")
+    @Column(name = "CityData")
     private String citydata;
 
-    @Column(name = "countrydata")
+    @Column(name = "CountryData")
     private String countrydata;
 
-    @Column(name = "birthdatedata")
+    @Column(name = "BirthDateData")
     private LocalDate birthdatedata;
 
-    @Column(name = "tinnumberdata")
+    @Column(name = "TINNumberData")
     private String tinnumberdata;
 
     @ManyToOne
     @JoinColumn(name = "wlmwltype")
-    @JsonIgnoreProperties(value = "wlmwldata", allowSetters = true)
+    @JsonIgnoreProperties(value = "WLMWLData", allowSetters = true)
     private Wlmwltype wlmwltype;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

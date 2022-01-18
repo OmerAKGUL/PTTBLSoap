@@ -13,7 +13,7 @@ import java.time.Instant;
  * A Wlmwltype.
  */
 @Entity
-@Table(schema = "WLF", name = "wlmwltype")
+@Table(schema = "WLF", name = "WLMWLType")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Wlmwltype implements Serializable {
 
@@ -34,47 +34,47 @@ public class Wlmwltype implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "code", nullable = false)
+    @Column(name = "Code", nullable = false)
     private String code;
 
     @NotNull
-    @Column(name = "name", nullable = false)
+    @Column(name = "Name", nullable = false)
     private String name;
 
-    @Column(name = "descr")
+    @Column(name = "Descr")
     private String descr;
 
-    @Column(name = "publishercat")
+    @Column(name = "PublisherCat")
     private String publishercat;
 
-    @Column(name = "publisherorgid")
+    @Column(name = "PublisherOrgID")
     private Integer publisherorgid;
 
-    @Column(name = "publishername")
+    @Column(name = "PublisherName")
     private String publishername;
 
-    @Column(name = "publishformat")
+    @Column(name = "PublishFormat")
     private String publishformat;
 
-    @Column(name = "filteringtype")
+    @Column(name = "FilteringType")
     private String filteringtype;
 
-    @Column(name = "createdt")
+    @Column(name = "CreateDT")
     private Instant createdt;
 
-    @Column(name = "updatedt")
+    @Column(name = "UpdateDT")
     private Instant updatedt;
 
-    @Column(name = "createusr")
+    @Column(name = "CreateUsr")
     private Integer createusr;
 
-    @Column(name = "updateusr")
+    @Column(name = "UpdateUsr")
     private Integer updateusr;
 
-    @Column(name = "wfstate")
+    @Column(name = "WFState")
     private String wfstate;
 
-    @Column(name = "wfprocid")
+    @Column(name = "WFProcID")
     private String wfprocid;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
