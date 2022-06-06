@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class WLmwldataMatchResult {
 
     private int matchScore;
@@ -152,7 +153,20 @@ public class WLmwldataMatchResult {
                 newResult.setCountrydata(result.getCountrydata());
                 newResult.setNamedata(result.getNamedata());
                 newResult.setTinnumberdata(result.getTinnumberdata());
-                newResult.setBirthdate(DatatypeFactory.newInstance().newXMLGregorianCalendar( result.getBirthdate().toString()));
+
+                try {
+                    newResult.setBirthdate(DatatypeFactory.newInstance().newXMLGregorianCalendar( result.getBirthdate().toString()));
+                } catch (Exception e)
+                {
+
+                    System.out.println(e.toString());
+                }
+
+
+
+
+
+
                 res.getMatchResult().add(newResult);
 
             }

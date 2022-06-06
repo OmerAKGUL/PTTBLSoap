@@ -34,47 +34,47 @@ public class Wlmwltype implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "Code", nullable = false)
+    @Column(name = "code", nullable = false)
     private String code;
 
     @NotNull
-    @Column(name = "Name", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "Descr")
+    @Column(name = "descr")
     private String descr;
 
-    @Column(name = "PublisherCat")
+    @Column(name = "publishercat")
     private String publishercat;
 
-    @Column(name = "PublisherOrgID")
+    @Column(name = "publisherorgId")
     private Integer publisherorgid;
 
-    @Column(name = "PublisherName")
+    @Column(name = "publishername")
     private String publishername;
 
-    @Column(name = "PublishFormat")
+    @Column(name = "publishformat")
     private String publishformat;
 
-    @Column(name = "FilteringType")
+    @Column(name = "filteringtype")
     private String filteringtype;
 
-    @Column(name = "CreateDT")
+    @Column(name = "createdt")
     private Instant createdt;
 
-    @Column(name = "UpdateDT")
+    @Column(name = "updatedt")
     private Instant updatedt;
 
-    @Column(name = "CreateUsr")
+    @Column(name = "createusr")
     private Integer createusr;
 
-    @Column(name = "UpdateUsr")
+    @Column(name = "updateusr")
     private Integer updateusr;
 
-    @Column(name = "WFState")
+    @Column(name = "wfstate")
     private String wfstate;
 
-    @Column(name = "WFProcID")
+    @Column(name = "wfprocId")
     private String wfprocid;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

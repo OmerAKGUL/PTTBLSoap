@@ -18,11 +18,11 @@ public class WlmwldataService {
         birthdate = null;
 
     }
-    public WlmwldataService(String namedata,String countrydata,String tinnumberdata) {
-        this.namedata = namedata;
-        this.countrydata = countrydata;
-        this.tinnumberdata = tinnumberdata;
-        this.birthdate=null;
+    public WlmwldataService(String Pnamedata,String Pcountrydata,String Ptinnumberdata ) {
+        this.namedata = Pnamedata;
+        this.countrydata = Pcountrydata;
+        this.tinnumberdata = Ptinnumberdata;
+
 
     }
 
@@ -59,17 +59,43 @@ public class WlmwldataService {
     }
 
     public void update() {
-        if (namedata.length() == 0)
-            namedata = null;
-        if (tinnumberdata.length() == 0)
-            tinnumberdata = null;
-        if (countrydata.length() == 0)
-            countrydata = null;
 
-        namedata = replaceTurkishCharSet(namedata);
-        tinnumberdata = replaceTurkishCharSet(tinnumberdata);
-        countrydata = replaceTurkishCharSet(countrydata);
+        try {
+            if (namedata.length() == 0)
+                namedata = null;
+        }catch (Exception e){
 
+        }
+
+        try {
+
+        }catch (Exception e){
+            if (tinnumberdata.length() == 0)
+                tinnumberdata = null;
+        }
+
+        try {
+
+        }catch (Exception e){
+            if (countrydata.length() == 0)
+                countrydata = null;
+        }
+
+
+
+
+
+
+try {
+
+    namedata = replaceTurkishCharSet(namedata);
+    tinnumberdata = replaceTurkishCharSet(tinnumberdata);
+    countrydata = replaceTurkishCharSet(countrydata);
+}
+catch (Exception e)
+{System.out.println(e.toString());
+
+}
 
     }
 

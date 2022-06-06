@@ -1,7 +1,7 @@
 package com.mdsap.pttwl.domain.model;
 
 import java.time.LocalDate;
-
+import java.util.Date;
 /**
  * A WlmwldataFind.
  */

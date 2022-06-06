@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
 import java.time.LocalDate;
-
+import java.util.Date;
 /**
  * A Wlmwldata.
  */
@@ -27,40 +27,40 @@ public class Wlmwldata implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "CreateDT")
+    @Column(name = "createdt")
     private Instant createdt;
 
-    @Column(name = "UpdateDT")
+    @Column(name = "updatedt")
     private Instant updatedt;
 
-    @Column(name = "CreateUsr")
+    @Column(name = "createusr")
     private Integer createusr;
 
-    @Column(name = "UpdateUsr")
+    @Column(name = "updateusr")
     private Integer updateusr;
 
-    @Column(name = "WFState")
+    @Column(name = "wfstate")
     private String wfstate;
 
-    @Column(name = "WFProcID")
+    @Column(name = "wfprocId")
     private Integer wfprocid;
 
-    @Column(name = "NameData")
+    @Column(name = "namedata")
     private String namedata;
 
-    @Column(name = "AddressData")
+    @Column(name = "addressdata")
     private String addressdata;
 
-    @Column(name = "CityData")
+    @Column(name = "citydata")
     private String citydata;
 
-    @Column(name = "CountryData")
+    @Column(name = "countrydata")
     private String countrydata;
 
-    @Column(name = "BirthDateData")
+    @Column(name = "birthdatedata")
     private LocalDate birthdatedata;
 
-    @Column(name = "TINNumberData")
+    @Column(name = "tInnumberdata")
     private String tinnumberdata;
 
     @ManyToOne
